@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuthHook from '../../Hooks/useAuthHook';
+import SocialLogins from '../../components/SocialLogins/SocialLogins';
 
 const Login = () => {
 	const { login } = useAuthHook();
+	const location = useLocation();
+	const navigate = useNavigate();
+	console.log(location);
 	const handleLogin = e => {
 		e.preventDefault();
 		const form = new FormData(e.currentTarget);
@@ -13,6 +17,8 @@ const Login = () => {
 		login(userData)
 			.then(res => {
 				console.log(res.user);
+				console.log(location?.state);
+				navigate(location?.state || '/');
 			})
 			.catch(err => {
 				console.log(err.message);
@@ -72,25 +78,7 @@ const Login = () => {
 				</form>
 				<div className="max-w-lg mx-auto  mt-8">
 					<div className="divider  after:bg-white before:bg-white">Or</div>
-
-					<div className="space-y-4">
-						<button className="w-full bg-transparent border-yellow-600 border-2 py-3 rounded-3xl relative text-white font-medium">
-							<img
-								src={'https://i.ibb.co/xFcWfP2/fb.png'}
-								alt=""
-								className="absolute w-10 bottom-1 left-2"
-							/>
-							Continue with Facebook
-						</button>
-						<button className="w-full bg-transparent border-yellow-600 border-2 py-3 rounded-3xl relative text-white font-medium">
-							<img
-								src={'https://i.ibb.co/fGG5MSH/google.png'}
-								alt=""
-								className="absolute w-8 bottom-2 left-2"
-							/>
-							Continue with Google
-						</button>
-					</div>
+					<SocialLogins />
 				</div>
 			</div>
 		</>

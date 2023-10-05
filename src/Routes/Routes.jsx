@@ -9,6 +9,7 @@ import Contact from '../pages/NotWorking/Contact/Contact';
 import Login from '../pages/Login/Login';
 import Register from '../pages/Register/Register';
 import Booking from '../pages/Booking/Booking';
+import PrivateRoutes from './PrivateRoutes';
 
 const routes = createBrowserRouter([
 	{
@@ -46,7 +47,11 @@ const routes = createBrowserRouter([
 
 			{
 				path: '/booking/:id',
-				element: <Booking />,
+				element: (
+					<PrivateRoutes>
+						<Booking />
+					</PrivateRoutes>
+				),
 			},
 		],
 	},

@@ -68,32 +68,34 @@ const Home = () => {
 							? active.description.slice(0, 150) + '...'
 							: active.description}
 					</p>
-					<div>
-						<Link to={`booking/${active.id}`}>
-							<button className="flex  gap-3 items-center px-7 py-3 text-black font-medium rounded bg-yellow-600 hover:bg-yellow-700">
-								Booking
-								<BsArrowRight />
-							</button>
+
+					<button className="px-7 py-3 text-black font-medium rounded bg-yellow-600 hover:bg-yellow-700">
+						<Link
+							to={`booking/${active.id}`}
+							className="flex  gap-3 items-center"
+						>
+							Booking
+							<BsArrowRight />
 						</Link>
-					</div>
+					</button>
 				</div>
 				<div className="flex-1">
 					<div className="carousel carousel-center max-w-2xl p-4 space-x-4 rounded-box ">
 						<div id="slide1" className="carousel-item">
 							<img
-								src="https://i.ibb.co/QQW9G1W/Sajek.png"
+								src={destinations[0].image}
 								className="rounded-box w-[20vw] h-[50vh]"
 							/>
 						</div>
 						<div id="slide2" className="carousel-item">
 							<img
-								src="https://i.ibb.co/QD6DZgM/sundorbon.png"
+								src={destinations[1].image}
 								className="rounded-box w-[20vw] h-[50vh]"
 							/>
 						</div>
 						<div id="slide3" className="carousel-item">
 							<img
-								src="https://i.ibb.co/93M6m0r/Sreemongol.png"
+								src={destinations[2].image}
 								className="rounded-box w-[20vw] h-[50vh]"
 							/>
 						</div>

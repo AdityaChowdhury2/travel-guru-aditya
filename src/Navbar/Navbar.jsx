@@ -63,7 +63,12 @@ const Navbar = () => {
 
 			<li>
 				{user ? (
-					<button onClick={handleLogOut}>Logout</button>
+					<button
+						onClick={handleLogOut}
+						className="bg-yellow-600 py-3 px-7 text-black font-medium duration-400 ease-linear hover:text-white hover:bg-transparent"
+					>
+						Logout
+					</button>
 				) : (
 					<Link
 						to={'/login'}
